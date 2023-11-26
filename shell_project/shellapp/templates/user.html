@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+   
+</head>
+<body>
+    <p>All the Users</p>
+<form action="POST" action="/allusers"  class="fom">
+    <div class="person">
+        <table class="container"border=1px>
+            {%for user in allusers%}
+            <tr>
+                <td class="name">{{user.first_name}}</td>
+                <td>{{user.last_name}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.age}}</td>
+            </tr>
+            {%endfor%}
+        </table>
+    </div>
+
+</form>
+<br>
+<p>_________________________________________________________________________</p>
+<br>
+<p>Add a user</p>
+    <form method="POST" action="/handelform">
+    {%csrf_token%}
+    <div class="all">
+        <p>first name: <input type="text" name="first_name" ></p>
+        <p>last name: <input type="text" name="last_name" ></p>
+    </div>
+    <div class="info">
+        <p>Email: <input type="text" name="email" ></p>
+        <p>Age: <input type="int" name="age" ></p>
+    </div>
+    <div class="send"></div>
+        <input type="submit" value="Add">
+    </div>
+</form>
+
+</form>
+
+</body>
+</html>

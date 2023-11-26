@@ -1,0 +1,37 @@
+.person {
+    border: 1px;
+}
+
+
+.container {
+    justify-content:center;
+    width: 100%;
+    padding-left: 30%;
+    padding-right: 30%;
+    justify-content:space-evenly
+
+}
+
+.all {
+    display: flex;
+    justify-content:space-evenly
+}
+ 
+.info {
+    display: flex;
+    justify-content:space-evenly
+
+}
+
+.send {
+    display: flex;
+    justify-content:space-evenly 
+}
+
+.fom {
+    justify-content:space-evenly 
+}
+
+p{
+    padding-left: 15%;
+}
