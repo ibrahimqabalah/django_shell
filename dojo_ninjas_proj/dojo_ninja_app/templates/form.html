@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <form method= "POST" action="/adddojo">
+        {%csrf_token%}
+        <p>Add a Dojo</p>
+        <p>Name<input type="text" name="dname"></p>
+        <p>City<input type="text" name="city"></p>
+        <p>State<input type="text" name="state"></p>
+        <input type="submit" value="Add">
+    </form> 
+
+    <form method= "POST" action="/addninja">
+        {%csrf_token%}
+        <p>Add a Ninja</p>
+        <p>first name<input type="text" name="fname"></p>
+        <p>last name<input type="text" name="lname"></p>
+        <p>Dojo<select name="dojo">
+            {%for dojo in alldojos%}
+            <option value="{{dojo.id}}">{{dojo.name}}</option>
+            {%endfor%}
+        </select></p>
+        <input type="submit" value="Add">
+    </form> 
+    <hr>
+    {%for dojo in alldojos%}
+    {{dojo.name}}
+    <ul>
+        {%for ninja in dojo.ninjas.all%}
+        <li>{{ninja.first_name}}  {{ninja.last_name}}</li>
+        {%endfor%}
+    </ul>
+    {%endfor%}
+</body>
+</html>
